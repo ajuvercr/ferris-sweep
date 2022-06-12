@@ -4,9 +4,13 @@
 
 
 ```
-git submodule init --recursive
+git submodule init
+git submodule update
 
-cd qmk_firmware/keyboards/ferris/keymaps/
+cd qmk_firmware
+make git-submodule
+
+cd keyboards/ferris/keymaps/
 ln -s ../../../../ git
 
 cd ../../..

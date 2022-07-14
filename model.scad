@@ -42,7 +42,7 @@ module cylinders() {
 module plate() {
     $w = 26;
     $h = 35;
-    $r = 1.8;
+    $r = 1.5;
     $ch = 4;
     linear_extrude(height=1)
     square([$w, $h]);

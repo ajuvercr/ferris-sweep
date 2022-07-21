@@ -2,8 +2,8 @@ $fn=50;
 
 module file() {
     scale(1.01)
-translate([0,-200, 0])
-import(file = "cuts.svg");
+    translate([0,-200, 0])
+    import(file = "cuts.svg");
 }
 
 module buildPyramidalExtrude(height,maxOffset,nSlices){
@@ -20,7 +20,7 @@ module foobar(r) {
     difference() {
         offset(r = r) 
             children();
-    //    offset(r=1)
+    //    offset(r=-r)
         children();
     }
 }
@@ -64,6 +64,6 @@ mirror([1,0,0]) {
 
     color("cyan")
     linear_extrude(height=2)
-    offset(3)
+    foobar(3)
     file();
 }; 

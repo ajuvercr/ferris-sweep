@@ -42,10 +42,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #    define THUMBSTICK_FLIP_Y
 #    define THUMBSTICK_PIN_X F0
 #    define THUMBSTICK_PIN_Y F1
-#define THUMBSTICK_PIN_VCC D5
-#define THUMBSTICK_PIN_GND B7
+#define THUMBSTICK_PIN_GND D5
+#define THUMBSTICK_PIN_VCC B7
+
 #define THUMBSTICK_DEBUG
 
 #define SPLIT_POINTING_ENABLE
 #define POINTING_DEVICE_RIGHT
 #endif
+

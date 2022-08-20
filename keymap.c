@@ -46,3 +46,11 @@ KC_A, KC_R, KC_S, KC_T  , KC_G   , /*  */ KC_M , KC_N , KC_E          , KC_I    
 KC_Z, KC_X, KC_C, KC_D  , KC_V   , /*  */ KC_K , KC_H , LGUI_T(KC_ESC), RALT_T(KC_RALT), RCTL_T(KC_RCTL), 
                   KC_SPC, KC_TRNS, /*  */ TO(0), MO(1)                                                  )
 };
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  // If console is enabled, it will print the matrix position and status of each key pressed
+#ifdef CONSOLE_ENABLE
+    uprintf("KL: kc: 0x%04X, col: %u, row: %u, pressed: %b, time: %u, interrupt: %b, count: %u\n", keycode, record->event.key.col, record->event.key.row, record->event.pressed, record->event.time, record->tap.interrupted, record->tap.count);
+#endif 
+  return true;
+}

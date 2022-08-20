@@ -1,9 +1,11 @@
 
-MOUSEKEY_ENABLE        = no
+MOUSEKEY_ENABLE        = yes
 THUMBSTICK_ENABLE  	   = yes
 # SPLIT_TRANSPORT        = custom
 POINTING_DEVICE_DRIVER = custom
 BOOTLOADER = atmel-dfu
+
+CONSOLE_ENABLE = true
 
 ifeq ($(strip $(THUMBSTICK_ENABLE)), yes)
     POINTING_DEVICE_ENABLE = yes

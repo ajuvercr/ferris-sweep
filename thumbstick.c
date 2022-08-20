@@ -24,10 +24,8 @@ writePinLow(THUMBSTICK_PIN_GND);
 
 // Axis-level wrapper to read raw value and return signed distanced from center
 int8_t thumbstick_get_component(uint8_t pin) {
-
-
-
     int16_t value = analogReadPin(pin);  // range of [0 to 1023]
+                                         //-#if defined THUMBSTICK_DEBUG
 #if defined THUMBSTICK_DEBUG
     if (pin == THUMBSTICK_PIN_X) {
         rawX  = value;
@@ -37,7 +35,8 @@ int8_t thumbstick_get_component(uint8_t pin) {
         distY = value - THUMBSTICK_RANGE_CENTER;
     }
 #endif
-    return (value - THUMBSTICK_RANGE_CENTER) / 4;
+
+    return (int8_t) ((value - THUMBSTICK_RANGE_CENTER) / 4);
 }
 
 thumbstick_mode_t   thumbstick_mode_get(void) { return thumbstick_state.config.mode; }
@@ -121,10 +120,7 @@ void thumbstick_process_state(report_mouse_t* report) {
             report->x = thumbstick_state.report.x;
             report->y = thumbstick_state.report.y;
 #ifdef THUMBSTICK_DEBUG
-            if (timer_elapsed(thumbstickLogTimer) > 100) {
-                thumbstickLogTimer = timer_read();
                 uprintf("Raw (%d, %d); Dist (%d, %d); Vec (%d, %d); Mouse (%d, %d);\n", rawX, rawY, distX, distY, thumbstick_state.vector.x, thumbstick_state.vector.y, thumbstick_state.report.x, thumbstick_state.report.y);
-            }
 #endif
             break;
         case THUMBSTICK_MODE_ARROWS:

@@ -38,16 +38,21 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define IGNORE_MOD_TAP_INTERRUPT
 #define TAPPING_FORCE_HOLD
 
-#ifdef THUMBSTICK_ENABLE
-#    define THUMBSTICK_FLIP_Y
-#    define THUMBSTICK_PIN_X F0
-#    define THUMBSTICK_PIN_Y F1
+// #ifdef THUMBSTICK_ENABLE
+// #    define THUMBSTICK_FLIP_Y
+// #    define THUMBSTICK_PIN_X F0
+// #    define THUMBSTICK_PIN_Y F1
+
 #define THUMBSTICK_PIN_GND D5
 #define THUMBSTICK_PIN_VCC B7
+
+#define ANALOG_JOYSTICK_X_AXIS_PIN F0
+#define ANALOG_JOYSTICK_Y_AXIS_PIN F1
 
 #define THUMBSTICK_DEBUG
 
 #define SPLIT_POINTING_ENABLE
 #define POINTING_DEVICE_RIGHT
-#endif
+
+// #endif
 

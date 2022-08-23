@@ -93,6 +93,7 @@ void thumbstick_calculate_state(void) {
         case THUMBSTICK_MODE_MOUSE:
             thumbstick_state.report.x = thumbstick_get_mouse_speed(thumbstick_state.vector.x);
             thumbstick_state.report.y = thumbstick_get_mouse_speed(thumbstick_state.vector.y);
+            thumbstick_state.report.cpi = 200;
             break;
         case THUMBSTICK_MODE_ARROWS:
             thumbstick_state.direction = thumbstick_get_discretized_direction(thumbstick_state.vector, THUMBSTICK_EIGHT_AXIS);
